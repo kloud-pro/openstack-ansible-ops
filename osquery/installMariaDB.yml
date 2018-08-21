@@ -22,8 +22,5 @@
   environment: "{{ deployment_environment_variables | default({}) }}"
 
   gather_facts: "{{ osa_gather_facts | default(True) }}"
-  serial: 1
   user: root
 
-  roles:
-    - role: "mariadb"

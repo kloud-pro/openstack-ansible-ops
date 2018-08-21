@@ -17,6 +17,9 @@
   command: /usr/local/bin/fleetctl get enroll-secret
   register: _enrollment_token
 
+- name: Print Enrollment Token
+  debug: msg="{{ _enrollment_token }}"
+
 - name: Set kolide fleet enrollment token fact
   set_fact:
     kolide_fleet_enroll_secret: "{{ _enrollment_token.stdout }}"

@@ -1,3 +1,4 @@
+
 kolide_fleet_enable: true
 kolide_fleet_cluster: false
 
@@ -27,6 +28,7 @@ kolide_fleet_ssl_cipher_suite: "{{ ssl_cipher_suite | default('ECDH+AESGCM:DH+AE
 
 # Osquery vars
 osquery_enroll_secret_dir: /etc/osquery/osquery_enroll_secret
+osquery_debug_packages_install: false
 
 osquery_flags:
     - "--tls_server_certs={{ kolide_fleet_ssl_cert }}"
@@ -48,7 +50,7 @@ osquery_flags:
     - "--enroll_secret_path={{ osquery_enroll_secret_dir }}"
 
 # MariaDB/Gallera Variables
-mariadb_root_password: fleetSecrete
+mariadb_root_user: "root"
 mariadb_bind_address: "0.0.0.0"
 mariadb_root_remote: 1
 mariadb_databases:
@@ -59,3 +61,5 @@ mariadb_users:
     password: "{{ kolide_fleet_db_password }}"
     priv: " {{ kolide_fleet_db_name }}.*:ALL"
     host: "%"
+
+galera_root_password: "{{ mariadb_root_password }}"

@@ -24,6 +24,9 @@ hosts:
     logging01:
 
 # This is the location where fleet(s) will live
+mariadb:
+  hosts:
+    logging01:
 fleet:
   hosts:
     logging01:

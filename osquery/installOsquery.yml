@@ -14,7 +14,7 @@
 # limitations under the License.
 
 - name: Install osquery
-  hosts: hosts
+  hosts: all
   become: true
   vars_files:
     - vars/variables.yml
